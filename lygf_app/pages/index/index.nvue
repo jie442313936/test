@@ -1,0 +1,93 @@
+<template>
+	<view>
+		<!-- <page-head :title="title"></page-head> -->
+		<view class="uni-common-mt">
+			<view>
+				<map class="map" :latitude="latitude" :longitude="longitude" :markers="markers" :polyline="polyline" @markertap="cl_tap(markers)"></map>
+			</view>
+		</view>
+	</view>
+</template>
+<script>
+export default {
+	data() {
+		return {
+			id:1,
+			title: 'map',
+			latitude: '',
+			longitude: '',
+			markers: [],
+			scale: 16 //地图缩放程度
+		};
+	},
+	onLoad() {
+		var me = this;
+		uni.request({
+			url: 'http://192.168.2.124/tp5/public/index.php/inter',
+			success: function(res) {
+				me.markers = res.data.data.list;
+				me.latitude = me.markers[0].latitude;
+				me.longitude = me.markers[0].longitude;
+				console.log(me.latitude)
+				console.log(me.longitude)
+			},
+			
+		});
+		
+	},
+	onShow() {},
+	methods: {
+		cl_tap(e){
+			console.log(e)
+		}
+	}
+};
+</script>
+<style>
+.map {
+	width: 800upx;
+	height: 1100upx;
+}
+.store-tips {
+	width: 600upx;
+	height: 100upx;
+	margin: 10upx 0 0 0;
+	border-radius: 10upx;
+	position: absolute;
+	top: 10upx;
+	left: 50%;
+	transform: translate(-50%, 0);
+	z-index: 2;
+	overflow: hidden;
+}
+.store-des-box {
+	background-color: #fff;
+}
+.store-img {
+	width: 80upx;
+	height: 80upx;
+	border-radious: 10upx;
+	margin: 10upx;
+	float: left;
+}
+.store-des {
+	padding-top: 8upx;
+	float: left;
+	line-height: 1;
+	font-size: 22upx;
+	color: #666;
+	padding-left: 20upx;
+}
+.store-name {
+	font-weight: 600;
+	color: deeppink;
+}
+.store-clear {
+	width: 30upx;
+	height: 30upx;
+	position: absolute;
+	top: 7rpx;
+	right: 7upx;
+	maigin: 30upx;
+}
+</style>

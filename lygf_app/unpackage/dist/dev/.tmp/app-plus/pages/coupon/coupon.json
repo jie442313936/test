@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "优惠券组件",
+  "usingComponents": {
+    "coupon": "/components/coolc-coupon/coolc-coupon"
+  }
+}

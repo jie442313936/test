@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"list-content{ padding: ",[0,20],"; font-size: ",[0,30],"; }\n.",[1],"list{ display:-webkit-box; display:-webkit-flex; display:-ms-flexbox; display:flex; height: ",[0,100],"; line-height: ",[0,100],"; width: 100%; border-bottom:1px solid rgb(243,243,243); }\n.",[1],"text{ -webkit-box-flex:1; -webkit-flex:1 1 auto; -ms-flex:1 1 auto; flex:1 1 auto; }\n",],undefined,{path:"./pages/skin-change/skin-change.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/skin-change/skin-change.wxml') } }));
